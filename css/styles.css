@@ -1,0 +1,378 @@
+:root {
+  --bg: #061026;
+  --card: #0e1a3a;
+  --text: #e9f1ff;
+  --muted: #b7c3d9;
+  --joy: #ffd200;
+  --sadness: #4cb1ff;
+  --anger: #ff4b3e;
+  --fear: #a77bff;
+  --disgust: #6bdc6b;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: linear-gradient(135deg, #071129 0%, #1a1f64 40%, #3a1a6b 100%);
+  position: relative;
+}
+
+/* Darker base for Activity 1 only */
+.has-orbs {
+  background: linear-gradient(135deg, #030407 0%, #3d1546 40%, #180175 100%);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(360px 360px at 15% 20%, rgba(90, 160, 255, 0.35), transparent 60%),
+    radial-gradient(420px 420px at 80% 25%, rgba(170, 90, 255, 0.35), transparent 60%),
+    radial-gradient(500px 500px at 30% 85%, rgba(90, 255, 230, 0.18), transparent 60%),
+    radial-gradient(360px 360px at 70% 70%, rgba(255, 120, 210, 0.14), transparent 60%),
+    radial-gradient(260px 260px at 50% 45%, rgba(120, 140, 255, 0.2), transparent 60%);
+  filter: blur(36px) saturate(115%);
+}
+.has-orbs::after {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    /* starfield */
+    radial-gradient(1.2px 1.2px at 8% 12%, rgba(255,255,255,0.9), transparent 60%),
+    radial-gradient(1.2px 1.2px at 18% 78%, rgba(255,255,255,0.8), transparent 60%),
+    radial-gradient(1.2px 1.2px at 28% 32%, rgba(255,255,255,0.8), transparent 60%),
+    radial-gradient(1.2px 1.2px at 42% 16%, rgba(255,255,255,0.7), transparent 60%),
+    radial-gradient(1.2px 1.2px at 55% 82%, rgba(255,255,255,0.7), transparent 60%),
+    radial-gradient(1.4px 1.4px at 66% 26%, rgba(255,255,255,0.85), transparent 60%),
+    radial-gradient(1.4px 1.4px at 74% 58%, rgba(255,255,255,0.75), transparent 60%),
+    radial-gradient(1.2px 1.2px at 83% 40%, rgba(255,255,255,0.8), transparent 60%),
+    radial-gradient(1.2px 1.2px at 92% 72%, rgba(255,255,255,0.8), transparent 60%),
+    radial-gradient(1px 1px at 12% 56%, rgba(255,255,255,0.6), transparent 60%),
+    radial-gradient(1px 1px at 36% 68%, rgba(255,255,255,0.6), transparent 60%),
+    radial-gradient(1px 1px at 48% 46%, rgba(255,255,255,0.6), transparent 60%),
+    /* faint nebula wash */
+    radial-gradient(800px 800px at 70% 20%, rgba(120, 70, 200, 0.12), transparent 60%),
+    radial-gradient(900px 900px at 20% 65%, rgba(60, 120, 220, 0.10), transparent 60%),
+    radial-gradient(360px 360px at 15% 20%, rgba(90, 160, 255, 0.35), transparent 60%),
+    radial-gradient(420px 420px at 80% 25%, rgba(170, 90, 255, 0.35), transparent 60%),
+    radial-gradient(500px 500px at 30% 85%, rgba(90, 255, 230, 0.18), transparent 60%),
+    radial-gradient(360px 360px at 70% 70%, rgba(255, 120, 210, 0.14), transparent 60%),
+    radial-gradient(260px 260px at 50% 45%, rgba(120, 140, 255, 0.2), transparent 60%),
+    /* extra orbs */
+    radial-gradient(200px 200px at 10% 80%, rgba(60, 140, 255, 0.22), transparent 65%),
+    radial-gradient(240px 240px at 88% 78%, rgba(200, 100, 255, 0.22), transparent 65%),
+    radial-gradient(180px 180px at 40% 10%, rgba(120, 200, 255, 0.18), transparent 65%),
+    radial-gradient(220px 220px at 62% 40%, rgba(255, 180, 240, 0.16), transparent 65%),
+    radial-gradient(160px 160px at 30% 55%, rgba(100, 120, 255, 0.18), transparent 65%);
+  filter: blur(40px) saturate(120%);
+}
+/* Extra orbs for dark poster background (used by both activities) */
+.io-dark::after {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    /* additional floating orbs */
+    radial-gradient(220px 220px at 12% 18%, rgba(90, 160, 255, 0.24), transparent 65%),
+    radial-gradient(260px 260px at 86% 22%, rgba(170, 90, 255, 0.24), transparent 65%),
+    radial-gradient(240px 240px at 20% 88%, rgba(90, 255, 230, 0.18), transparent 65%),
+    radial-gradient(200px 200px at 74% 82%, rgba(255, 120, 210, 0.18), transparent 65%),
+    radial-gradient(180px 180px at 48% 12%, rgba(120, 140, 255, 0.2), transparent 65%),
+    radial-gradient(200px 200px at 38% 64%, rgba(60, 140, 255, 0.22), transparent 65%),
+    radial-gradient(220px 220px at 60% 36%, rgba(200, 100, 255, 0.22), transparent 65%),
+    radial-gradient(180px 180px at 30% 36%, rgba(120, 200, 255, 0.18), transparent 65%),
+    radial-gradient(240px 240px at 78% 54%, rgba(255, 180, 240, 0.16), transparent 65%),
+    radial-gradient(160px 160px at 52% 58%, rgba(100, 120, 255, 0.18), transparent 65%);
+  filter: blur(42px) saturate(125%);
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+}
+.site-header {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+.nav a[aria-current="page"],
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+main {
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+.intro-card {
+  max-width: 760px;
+  width: 100%;
+  background: rgba(14, 26, 58, 0.9);
+  padding: 2rem;
+  border: 2px solid rgba(233, 241, 255, 0.2);
+  border-radius: 16px;
+  text-align: center;
+}
+.intro-card h2 {
+  margin-top: 0;
+}
+blockquote {
+  margin: 1.5rem auto;
+  padding: 1rem;
+  border-left: 6px solid var(--sadness);
+  background: rgba(0, 0, 0, 0.15);
+  max-width: 640px;
+}
+blockquote footer {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.signature {
+  letter-spacing: 0.35em;
+  font-variant: small-caps;
+  color: var(--muted);
+}
+.site-footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Utility: line-through text */
+.strike {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--muted);
+}
+
+/* Formatting demo */
+.formatting-demo {
+  margin-top: 2rem;
+  text-align: left;
+}
+.formatting-demo h3 {
+  margin: 0 0 0.75rem;
+}
+.fmt-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.fmt-code {
+  margin: 0;
+  padding: 1rem;
+  background: #1a254a;
+  border: 1px solid rgba(233, 241, 255, 0.18);
+  border-radius: 8px;
+  color: var(--text);
+  overflow-x: auto;
+  line-height: 1.5;
+}
+.fmt-preview {
+  background: rgba(14, 26, 58, 0.92);
+  border: 1px solid rgba(233, 241, 255, 0.18);
+  border-radius: 8px;
+  padding: 1rem;
+}
+.fmt-preview p {
+  margin: 0.25rem 0;
+}
+
+@media (min-width: 900px) {
+  .fmt-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Activity 2 table styles */
+.table-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.movie-grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+.movie-grid caption {
+  caption-side: top;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  padding: 1rem 0;
+  color: var(--joy);
+}
+.movie-grid th,
+.movie-grid td {
+  background: rgba(14, 26, 58, 0.92);
+  border: 1px solid rgba(233, 241, 255, 0.18);
+  padding: 6px;
+  vertical-align: top;
+}
+.poster {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3/4;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.cell-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Poster grid look */
+.io-dark {
+  background: #070707;
+}
+.io-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+}
+.io-card figure {
+  margin: 0;
+  position: relative;
+}
+.io-card .frame {
+  margin-left: auto;
+  margin-right: auto;
+}
+.io-card .frame {
+  position: relative;
+  transform: rotate(-6deg);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  /* Keep a consistent poster shape so images aren't cropped */
+  aspect-ratio: 3 / 4;
+}
+.io-card .frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--io-color, #888);
+  z-index: 0;
+}
+.io-card img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Show the entire image within the frame */
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+.io-card .label {
+  display: block;
+  margin: 0.75rem 0 0;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+/* Color themes per emotion */
+.c-joy {
+  --io-color: #ffd200;
+}
+.c-sadness {
+  --io-color: #4cb1ff;
+}
+.c-anger {
+  --io-color: #ff4b3e;
+}
+.c-fear {
+  --io-color: #a77bff;
+}
+.c-disgust {
+  --io-color: #6bdc6b;
+}
+.c-envy {
+  --io-color: #2bd9d9;
+}
+.c-anxiety {
+  --io-color: #ff8a00;
+}
+.c-embarrassment {
+  --io-color: #ff7aa2;
+}
+.c-ennui {
+  --io-color: #8fa1ff;
+}
+
+/* Tighten table to look like a poster board */
+.movie-grid th,
+.movie-grid td {
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px;
+}
+.movie-grid caption {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+.io-card .frame {
+  min-height: 0;
+}
+.movie-grid td {
+  width: 33.333%;
+}
+
+@media (min-width: 900px) {
+  .table-wrap {
+    max-width: 1000px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav a {
+    transition: background-color 0.2s ease;
+  }
+}
